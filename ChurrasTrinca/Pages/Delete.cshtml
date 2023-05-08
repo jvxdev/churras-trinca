@@ -1,0 +1,20 @@
+﻿@page
+@model ChurrasTrinca.Pages.DeleteModel
+
+@{
+    ViewData["Title"] = "Desmarcar";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center" style="margin-top: 150px; font-weight: 700;">
+    Você tem certeza que deseja desmarcar esse churras? 
+    <br />
+    (@Html.DisplayFor(model => model.Churrasco.Nome))?
+</h1>
+
+<form method="post">
+    <div class="text-center">
+        <button class="btn btn-danger" asp-page="Index">Não</button>
+        <button class="btn btn-success" type="submit">Sim</button>
+    </div>
+</form>

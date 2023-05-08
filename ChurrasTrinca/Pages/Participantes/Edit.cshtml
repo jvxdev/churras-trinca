@@ -1,0 +1,50 @@
+﻿@page
+@model ChurrasTrinca.Pages.Participantes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Participante</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Participante.Id" />
+            <div class="form-group">
+                <label asp-for="Participante.Nome" class="control-label"></label>
+                <input asp-for="Participante.Nome" class="form-control" />
+                <span asp-validation-for="Participante.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Participante.ValorContribuicao" class="control-label"></label>
+                <input asp-for="Participante.ValorContribuicao" class="form-control" />
+                <span asp-validation-for="Participante.ValorContribuicao" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Participante.ParticipanteConfirmado" /> @Html.DisplayNameFor(model => model.Participante.ParticipanteConfirmado)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Participante.ChurrascoId" class="control-label"></label>
+                <select asp-for="Participante.ChurrascoId" class="form-control" asp-items="ViewBag.ChurrascoId"></select>
+                <span asp-validation-for="Participante.ChurrascoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

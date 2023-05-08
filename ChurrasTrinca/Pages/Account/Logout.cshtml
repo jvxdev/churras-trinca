@@ -1,0 +1,18 @@
+﻿@page
+@model ChurrasTrinca.Pages.Account.LogoutModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center" style="margin-top: 150px; font-weight: 700;">
+    Você tem certeza que deseja sair?
+</h1>
+
+<form method="post">
+    <div class="text-center">
+        <button class="btn btn-success" asp-page-handler="Logout">Sim</button>
+        <button class="btn btn-danger" asp-page-handler="DontLogout">Não</button>
+    </div>
+</form>

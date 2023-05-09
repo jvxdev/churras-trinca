@@ -15,8 +15,8 @@ namespace ChurrasTrinca.Models
         [Display(Name = "Valor de contrib. de bebibas")]
         public decimal ValorContribuicaoBebidas { get; set; }
 
-        [Display(Name = "Participante já pagou?")]
-        public bool ParticipantePagou { get; set; }
+        [Display(Name = "Participante está cofirmado?")]
+        public bool ParticipanteConfirmado { get; set; }
 
         [ForeignKey("Churrasco")]
         [Display(Name = "Churrasco")]
@@ -27,7 +27,7 @@ namespace ChurrasTrinca.Models
         public decimal GetContribuicaoSugerida()
         {
             int quantidadeEstimativaPessoas = Churrasco.EstimativaPessoas;
-            int quantidadeParticipantesPagConfirmado = Churrasco.Participantes.Where(p => p.ParticipantePagou).Count();
+            int quantidadeParticipantesPagConfirmado = Churrasco.Participantes.Where(p => p.ParticipanteConfirmado).Count();
             
             return quantidadeEstimativaPessoas - quantidadeParticipantesPagConfirmado;
         }

@@ -23,8 +23,7 @@ namespace ChurrasTrinca.Pages.Churrascos
             _context = context;
         }
 
-        [BindProperty]
-        public Participante Participante { get; set; } = default!;  
+        public Participante? Participante { get; set; }
 
         [BindProperty]
         public Churrasco Churrasco { get; set; } = default!;
@@ -84,7 +83,7 @@ namespace ChurrasTrinca.Pages.Churrascos
                 }
             }
 
-            return Page();
+            return Redirect($"Edit?id={Churrasco.Id}");
         }
 
         private bool ChurrascoExists(int id)

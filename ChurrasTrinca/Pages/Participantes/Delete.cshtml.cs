@@ -21,10 +21,12 @@ namespace ChurrasTrinca.Pages.Participantes
             _context = context;
         }
 
-        [BindProperty]
-      public Participante Participante { get; set; } = default!;
+        public Churrasco? Churrasco { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        [BindProperty]
+        public Participante Participante { get; set; } = default!;
+
+        public async Task<IActionResult> OnGetAsync(int? id, int? churrasId)
         {
             if (id == null || _context.Participantes == null)
             {
@@ -33,13 +35,17 @@ namespace ChurrasTrinca.Pages.Participantes
 
             var participante = await _context.Participantes.FirstOrDefaultAsync(m => m.Id == id);
 
+            var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == churrasId);
+
             if (participante == null)
             {
                 return NotFound();
             }
             else 
-            {
+            {   
                 Participante = participante;
+
+                Churrasco = churrasco;
             }
 
             return Page();

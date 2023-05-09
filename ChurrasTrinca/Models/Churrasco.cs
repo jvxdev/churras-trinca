@@ -47,7 +47,7 @@ namespace ChurrasTrinca.Models
 
         public void SetContribuicaoTotal(Participante participante) 
         {
-            if (participante.ParticipantePagou)
+            if (participante.ParticipanteConfirmado)
             {
                 ValorContribuicaoChurras += participante.ValorContribuicaoChurras;
                 ValorContribuicaoBebidas += participante.ValorContribuicaoBebidas;

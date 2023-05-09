@@ -31,7 +31,9 @@ namespace ChurrasTrinca.Pages.Participantes
         {
             ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Nome");
 
-            ViewData["ChurrasId"] = churrasId;
+            var churrasco = await _context.Churrascos.FirstOrDefaultAsync(m => m.Id == churrasId);
+
+            Churrasco = churrasco;
 
             return Page();
         }

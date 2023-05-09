@@ -26,7 +26,7 @@ namespace ChurrasTrinca.Pages.Participantes
 
         public Churrasco Churrasco { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, int churrasId)
         {
             if (id == null || _context.Participantes == null)
             {
@@ -34,8 +34,6 @@ namespace ChurrasTrinca.Pages.Participantes
             }
 
             var participante = await _context.Participantes.FirstOrDefaultAsync(m => m.Id == id);
-
-            var churrasId = _context.Churrascos.Where(c => c.Id == participante.ChurrascoId).Select(c => c.Id).FirstOrDefault();
 
             var churrasco = await _context.Churrascos.FirstOrDefaultAsync(m => m.Id == churrasId);
 

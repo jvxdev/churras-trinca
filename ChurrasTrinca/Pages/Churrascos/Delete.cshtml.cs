@@ -57,6 +57,8 @@ namespace ChurrasTrinca.Pages.Churrascos
                 Churrasco = churrasco;
                 _context.Churrascos.Remove(Churrasco);
                 await _context.SaveChangesAsync();
+
+                TempData["Msg"] = "O churras foi desmarcado com sucesso!";
             }
 
             return RedirectToPage("./Index");

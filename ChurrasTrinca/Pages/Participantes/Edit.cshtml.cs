@@ -22,8 +22,7 @@ namespace ChurrasTrinca.Pages.Participantes
             _context = context;
         }
 
-        [BindProperty]
-        public Churrasco Churrasco { get; set; } = default!;
+        public Churrasco? Churrasco { get; set; } = default!;
 
         [BindProperty]
         public Participante Participante { get; set; } = default!;
@@ -39,14 +38,14 @@ namespace ChurrasTrinca.Pages.Participantes
 
             var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == churrasId);
 
-            Churrasco = churrasco;
-
             if (participante == null)
             {
                 return NotFound();
             }
 
             Participante = participante;
+
+            Churrasco = churrasco;
 
             ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Descricao");
 
@@ -82,9 +81,11 @@ namespace ChurrasTrinca.Pages.Participantes
                 }
             }
 
-            var churrasId = await _context.Participantes.Where(p => p.Id == Participante.Id).Select(p => p.ChurrascoId).FirstOrDefaultAsync();
+            var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == Participante.ChurrascoId);
 
-            return Redirect($"../Churrascos/Edit?id={churrasId}");
+            Churrasco = churrasco;
+
+            return Redirect($"../Churrascos/Edit?id={Churrasco.Id}");
         }
 
         private bool ParticipanteExists(int id)

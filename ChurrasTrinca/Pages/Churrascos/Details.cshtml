@@ -91,7 +91,7 @@
                                         @item.ValorContribuicaoBebidas.ToString("C")
                                     </td>
                                     <td>
-                                        @(@item.ParticipantePagou == true ? "Sim" : "Não")
+                                        @(@item.ParticipanteConfirmado == true ? "Sim" : "Não")
                                     </td>
                                     <td>
                                         <a asp-page="/Participantes/Edit" asp-route-id="@item.Id" asp-route-ChurrasId="@Model.Churrasco.Id" style="color: #dbb000;"><i class="fa-solid fa-pen-to-square"></i></a>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jvxvj\\Desktop\\Projeto2\\ChurrasTrinca\\ChurrasTrinca\\ChurrasTrinca.csproj": {}
+    "C:\\Users\\jvxvj\\Desktop\\teste\\churras-trinca\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jvxvj\\Desktop\\Projeto2\\ChurrasTrinca\\ChurrasTrinca\\ChurrasTrinca.csproj": {
+    "C:\\Users\\jvxvj\\Desktop\\teste\\churras-trinca\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jvxvj\\Desktop\\Projeto2\\ChurrasTrinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
+        "projectUniqueName": "C:\\Users\\jvxvj\\Desktop\\teste\\churras-trinca\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
         "projectName": "ChurrasTrinca",
-        "projectPath": "C:\\Users\\jvxvj\\Desktop\\Projeto2\\ChurrasTrinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
+        "projectPath": "C:\\Users\\jvxvj\\Desktop\\teste\\churras-trinca\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
         "packagesPath": "C:\\Users\\jvxvj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jvxvj\\Desktop\\Projeto2\\ChurrasTrinca\\ChurrasTrinca\\obj\\",
+        "outputPath": "C:\\Users\\jvxvj\\Desktop\\teste\\churras-trinca\\churras-trinca\\ChurrasTrinca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jvxvj\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,6 +55,10 @@
               "version": "[7.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[7.0.5, )"
             },

@@ -1,28 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using ChurrasTrinca.Models;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ChurrasTrinca.Pages
 {
-    [Authorize]
     public class IndexModel : PageModel
     {
-        private readonly Data.AppDbContext _context;
-
-        public IndexModel(Data.AppDbContext context)
+        public IActionResult OnGet()
         {
-            _context = context;
-        }
-
-        public IList<Churrasco> Churrasco { get;set; } = default!;
-
-        public async Task OnGetAsync()
-        {
-            if (_context.Churrascos != null)
-            {
-                Churrasco = await _context.Churrascos.Include(p => p.Participantes).ToListAsync();
-            }
+            return Redirect("/Churrascos/Index");
         }
     }
 }

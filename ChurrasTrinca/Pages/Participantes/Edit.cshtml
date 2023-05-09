@@ -2,54 +2,87 @@
 @model ChurrasTrinca.Pages.Participantes.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar participante";
 }
 
-<h1>Edit</h1>
+<section id="contact" class="contact">
+    <div class="container p-5" style="box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.1); border-radius: 10px;">
 
-<h4>Participante</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Participante.Id" />
-            <div class="form-group">
-                <label asp-for="Participante.Nome" class="control-label"></label>
-                <input asp-for="Participante.Nome" class="form-control" />
-                <span asp-validation-for="Participante.Nome" class="text-danger"></span>
+        <div class="text-start">
+            <h3 style="font-weight: 700; text-shadow: black 1px 2px;"><a href="javascript:history.go(-1)" title="Voltar para a Home">Voltar</a></h3>
+        </div>
+
+        <div class="section-title">
+            <h1 data-aos="fade-up">Convidar participante</h1>
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-xl-9 col-lg-12 mt-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Participante.Id" />
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label asp-for="Participante.Nome" class="control-label"></label>
+                            <input asp-for="Participante.Nome" class="form-control" />
+                            <span asp-validation-for="Participante.Nome" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label asp-for="Participante.ValorContribuicaoChurras" class="control-label"></label>
+                            <input asp-for="Participante.ValorContribuicaoChurras" class="form-control" />
+                            <span asp-validation-for="Participante.ValorContribuicaoChurras" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label asp-for="Participante.ValorContribuicaoBebidas" class="control-label"></label>
+                            <input asp-for="Participante.ValorContribuicaoBebidas" class="form-control" />
+                            <span asp-validation-for="Participante.ValorContribuicaoBebidas" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4 form-group">
+                            <label asp-for="Participante.ChurrascoId" class="control-label"></label>
+                            <select asp-for="Participante.ChurrascoId" class="form-control" asp-items="ViewBag.ChurrascoId"></select>
+                        </div>
+                        <div class="col-md-4 form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="Participante.ParticipantePagou" /> @Html.DisplayNameFor(model => model.Participante.ParticipantePagou)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Participante.ValorContribuicaoChurras" class="control-label"></label>
-                <input asp-for="Participante.ValorContribuicaoChurras" class="form-control" />
-                <span asp-validation-for="Participante.ValorContribuicaoChurras" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Participante.ValorContribuicaoBebidas" class="control-label"></label>
-                <input asp-for="Participante.ValorContribuicaoBebidas" class="form-control" />
-                <span asp-validation-for="Participante.ValorContribuicaoBebidas" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Participante.ParticipantePagou" /> @Html.DisplayNameFor(model => model.Participante.ParticipantePagou)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Participante.ChurrascoId" class="control-label"></label>
-                <select asp-for="Participante.ChurrascoId" class="form-control" asp-items="ViewBag.ChurrascoId"></select>
-                <span asp-validation-for="Participante.ChurrascoId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+</section>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+@if (ViewData["Msg"] != null)
+{
+    <script>
+        $(function () {
+            $.confirm({
+                title: 'Hehehehehehe!',
+                content: '@ViewData["Msg"]',
+                type: 'green',
+                typeAnimated: true,
+                buttons: {
+                    Ok: {
+                        text: 'Ok',
+                        btnClass: 'btn-green',
+                        action: function () {
+                            location.href = "Index";
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+}
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -39,6 +39,7 @@ namespace ChurrasTrinca.Pages.Participantes
             {
                 Participante = participante;
             }
+
             return Page();
         }
 
@@ -48,7 +49,10 @@ namespace ChurrasTrinca.Pages.Participantes
             {
                 return NotFound();
             }
+
             var participante = await _context.Participantes.FindAsync(id);
+
+            var churrasId = await _context.Participantes.Select(p => p.ChurrascoId).FirstOrDefaultAsync();
 
             if (participante != null)
             {
@@ -57,7 +61,9 @@ namespace ChurrasTrinca.Pages.Participantes
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            TempData["Msg"] = "O participante foi removido com sucesso!";
+
+            return Redirect($"../Churrascos/Edit?id={churrasId}");
         }
     }
 }

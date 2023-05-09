@@ -47,16 +47,16 @@ namespace ChurrasTrinca.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal>("ValorContribuicaoBebidas")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ValorContribuicaoChurras")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<decimal>("ValorEstimadoBebida")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("ValorEstimadoChurrasco")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ValorEstimadoContribuicaoBebidas")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ValorEstimadoContribuicaoChurras")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");

@@ -28,7 +28,7 @@ namespace ChurrasTrinca.Pages.Account
 
         public IActionResult OnPostDontLogoutAsync()
         {
-            return Redirect("~/Index");
+            return Redirect("~/Churrascos/Index");
         }
     }
 }

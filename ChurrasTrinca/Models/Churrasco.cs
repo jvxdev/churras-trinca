@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChurrasTrinca.Models
 {
@@ -36,48 +35,21 @@ namespace ChurrasTrinca.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM}")]
         public DateTime? Data { get; set; }
 
-        private ICollection<Participante> _participantes;
-
-        public ICollection<Participante> Participantes
-        {
-            get
-            {
-                return _participantes;
-            }
-            set
-            {
-                _participantes = value;
-
-                GetContribuicaoTotal();
-            }
-        }
+        public ICollection<Participante>? Participantes { get; set; }
 
         public decimal ValorContribuicaoChurras { get; set; }
 
         public decimal ValorContribuicaoBebidas { get; set; }
 
-        public decimal ValorContribuicaoTotal
-        {
-            get
-            {
-                return ValorContribuicaoChurras + ValorContribuicaoBebidas;
-            }
-        }
+        public decimal ValorContribuicaoTotal => ValorContribuicaoChurras + ValorContribuicaoBebidas;
 
-        public decimal ValorContribuicaoRestante
-        {
-            get
-            {
-                return ValorEstimadoChurrasco + ValorEstimadoBebida - ValorContribuicaoTotal;
-            }
-        }
+        public decimal ValorContribuicaoRestante => ValorEstimadoChurrasco + ValorEstimadoBebida - ValorContribuicaoTotal;
 
-        private void GetContribuicaoTotal() 
+        public void SetContribuicaoTotal(Participante participante) 
         {
-            foreach (var participante in Participantes) 
+            if (participante.ParticipantePagou)
             {
                 ValorContribuicaoChurras += participante.ValorContribuicaoChurras;
-
                 ValorContribuicaoBebidas += participante.ValorContribuicaoBebidas;
             }
         }

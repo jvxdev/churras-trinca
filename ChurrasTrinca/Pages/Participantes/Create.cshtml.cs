@@ -12,35 +12,36 @@ namespace ChurrasTrinca.Pages.Participantes
 {
     public class CreateModel : PageModel
     {
-        private readonly ChurrasTrinca.Data.AppDbContext _context;
+        private readonly AppDbContext _context;
 
-        public CreateModel(ChurrasTrinca.Data.AppDbContext context)
+        public CreateModel(AppDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Nome");
+            ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Nome");
+
             return Page();
         }
 
         [BindProperty]
-        public Participante Participante { get; set; } = default!;
-        
+        public Participante Participante { get; set; }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Participantes == null || Participante == null)
-            {
+            if (!ModelState.IsValid || _context.Participantes == null || Participante == null)
                 return Page();
-            }
 
             _context.Participantes.Add(Participante);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            TempData["Msg"] = "O participante foi convidado com sucesso!";
+
+            var churrasId = Participante.ChurrascoId;
+
+            return Redirect($"../Churrascos/Edit?id={churrasId}");
         }
     }
 }

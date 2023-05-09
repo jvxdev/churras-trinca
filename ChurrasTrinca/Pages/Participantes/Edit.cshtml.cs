@@ -30,13 +30,17 @@ namespace ChurrasTrinca.Pages.Participantes
                 return NotFound();
             }
 
-            var participante =  await _context.Participantes.FirstOrDefaultAsync(m => m.Id == id);
+            var participante = await _context.Participantes.FirstOrDefaultAsync(m => m.Id == id);
+
             if (participante == null)
             {
                 return NotFound();
             }
+
             Participante = participante;
-           ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Descricao");
+
+            ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Descricao");
+
             return Page();
         }
 
@@ -54,6 +58,8 @@ namespace ChurrasTrinca.Pages.Participantes
             try
             {
                 await _context.SaveChangesAsync();
+
+                TempData["Msg"] = "O participante foi editado com sucesso!";
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -67,12 +73,14 @@ namespace ChurrasTrinca.Pages.Participantes
                 }
             }
 
-            return RedirectToPage("./Index");
+            var churrasId = await _context.Participantes.Where(p => p.Id == Participante.Id).Select(p => p.ChurrascoId).FirstOrDefaultAsync();
+
+            return Redirect($"../Churrascos/Edit?id={churrasId}");
         }
 
         private bool ParticipanteExists(int id)
         {
-          return (_context.Participantes?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Participantes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

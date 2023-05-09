@@ -1,0 +1,48 @@
+﻿@page
+@model ChurrasTrinca.Pages.Churrascos.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Churrasco</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Churrasco.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Churrasco.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Churrasco.Descricao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Churrasco.Descricao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Churrasco.ValorEstimadoChurrasco)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Churrasco.ValorEstimadoChurrasco)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Churrasco.ValorEstimadoBebida)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Churrasco.ValorEstimadoBebida)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Churrasco.Data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Churrasco.Data)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Churrasco?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

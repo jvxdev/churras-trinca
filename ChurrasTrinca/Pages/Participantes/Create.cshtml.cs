@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using ChurrasTrinca.Data;
 using ChurrasTrinca.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChurrasTrinca.Pages.Participantes
 {
@@ -16,20 +17,24 @@ namespace ChurrasTrinca.Pages.Participantes
     {
         private readonly AppDbContext _context;
 
+        [BindProperty]
+        public Participante Participante { get; set; }
+
+        public Churrasco? Churrasco { get; set; }
+
         public CreateModel(AppDbContext context)
         {
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGet(int churrasId)
         {
             ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Nome");
 
+            ViewData["ChurrasId"] = churrasId;
+
             return Page();
         }
-
-        [BindProperty]
-        public Participante Participante { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {

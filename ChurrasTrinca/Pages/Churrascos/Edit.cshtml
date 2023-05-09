@@ -67,7 +67,7 @@
                 @if (Model.Churrasco.Participantes.Count() > 0)
                 {
                     <h3 style="font-weight: 700">
-                        Quer convidar mais pessoas? <a asp-page="/Participantes/Create" asp-route-id="@Model.Churrasco?.Id" style="color: #157347" title="Convide mais pessoas!">Então clica aqui!</a>
+                        Quer convidar mais pessoas? <a asp-page="/Participantes/Create" asp-route-ChurrasId="@Model.Churrasco?.Id" style="color: #157347" title="Convide mais pessoas!">Então clica aqui!</a>
                     </h3>
 
                     <table class="styled-table table-responsive">
@@ -108,8 +108,8 @@
                                         @(@item.ParticipantePagou == true ? "Sim" : "Não")
                                     </td>
                                     <td>
-                                        <a asp-page="/Participantes/Edit" asp-route-id="@item.Id" style="color: #dbb000;"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a asp-page="/Participantes/Details" asp-route-id="@item.Id" style="color: #dbb000;"><i class="fa-solid fa-eye"></i></a>
+                                        <a asp-page="/Participantes/Edit" asp-route-id="@item.Id" asp-route-ChurrasId="@Model.Churrasco.Id" style="color: #dbb000;"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a asp-page="/Participantes/Details" asp-route-id="@item.Id" asp-route-ChurrasId="@Model.Churrasco.Id" style="color: #dbb000;"><i class="fa-solid fa-eye"></i></a>
                                         <a asp-page="/Participantes/Delete" asp-route-id="@item.Id" style="color: #dbb000;"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>

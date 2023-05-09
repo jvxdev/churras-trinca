@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChurrasTrinca.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230508193426_Initial")]
-    partial class Initial
+    [Migration("20230509002407_GetContribuicaoTotal")]
+    partial class GetContribuicaoTotal
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,18 +42,24 @@ namespace ChurrasTrinca.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<int>("EstimativaPessoas")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("TotalParticipantes")
-                        .HasColumnType("int");
-
-                    b.Property<decimal?>("ValorArrecadado")
+                    b.Property<decimal>("ValorContribuicaoBebidas")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("ValorSugerido")
+                    b.Property<decimal>("ValorContribuicaoChurras")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ValorEstimadoBebida")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ValorEstimadoChurrasco")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -75,10 +81,13 @@ namespace ChurrasTrinca.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ParticipanteConfirmado")
+                    b.Property<bool>("ParticipantePagou")
                         .HasColumnType("bit");
 
-                    b.Property<decimal>("ValorContribuicao")
+                    b.Property<decimal>("ValorContribuicaoBebidas")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ValorContribuicaoChurras")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -289,7 +298,7 @@ namespace ChurrasTrinca.Migrations
             modelBuilder.Entity("ChurrasTrinca.Models.Participante", b =>
                 {
                     b.HasOne("ChurrasTrinca.Models.Churrasco", "Churrasco")
-                        .WithMany("Participante")
+                        .WithMany("Participantes")
                         .HasForeignKey("ChurrascoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -350,7 +359,7 @@ namespace ChurrasTrinca.Migrations
 
             modelBuilder.Entity("ChurrasTrinca.Models.Churrasco", b =>
                 {
-                    b.Navigation("Participante");
+                    b.Navigation("Participantes");
                 });
 #pragma warning restore 612, 618
         }

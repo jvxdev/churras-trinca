@@ -29,14 +29,26 @@
                             <span asp-validation-for="Churrasco.Nome" class="text-danger"></span>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label asp-for="Churrasco.ValorSugerido" class="control-label"></label>
-                            <input asp-for="Churrasco.ValorSugerido" class="form-control" placeholder="Ex: 599,99" />
-                            <span asp-validation-for="Churrasco.ValorSugerido" class="text-danger"></span>
+                            <label asp-for="Churrasco.ValorEstimadoChurrasco" class="control-label"></label>
+                            <input asp-for="Churrasco.ValorEstimadoChurrasco" class="form-control" placeholder="Ex: 399,99" />
+                            <span asp-validation-for="Churrasco.ValorEstimadoChurrasco" class="text-danger"></span>
                         </div>
-                        <div class="col-md-4 form-group mt-3 mt-md-0">
+                        <div class="col-md-4 form-group">
+                            <label asp-for="Churrasco.ValorEstimadoBebida" class="control-label"></label>
+                            <input asp-for="Churrasco.ValorEstimadoBebida" class="form-control" placeholder="Ex: 599,99" />
+                            <span asp-validation-for="Churrasco.ValorEstimadoBebida" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <label asp-for="Churrasco.EstimativaPessoas" class="control-label"></label>
+                            <input asp-for="Churrasco.EstimativaPessoas" class="form-control" type="text" />
+                            <span asp-validation-for="Churrasco.EstimativaPessoas" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
                             <label asp-for="Churrasco.Data" class="control-label"></label>
                             <input asp-for="Churrasco.Data" class="form-control" type="date" />
-                            <span asp-validation-for="Churrasco.ValorSugerido" class="text-danger"></span>
+                            <span asp-validation-for="Churrasco.Data" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group mt-3">
@@ -48,35 +60,106 @@
                         <button id="button-submit" class="btn btn-success" type="submit" title="Salvar">Salvar</button>
                     </div>
                 </form>
+
+                <hr />
+
+                <!-- TABELA DE PARTICIPANTES -->
+                @if (Model.Churrasco.Participantes != null)
+                {
+                    <a asp-page="Participantes/Create" class="btn btn-success">Quer convidar mais pessoas? Então clica aqui!</a>
+
+                    <table class="styled-table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nome
+                                </th>
+                                <th>
+                                    Valor em Churras
+                                </th>
+                                <th>
+                                    Valor em Bebidas
+                                </th>
+                                <th>
+                                    Já pagou?
+                                </th>
+                                <th>
+                                    Ações
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Churrasco.Participantes)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Nome
+                                    </td>
+                                    <td>
+                                        @item.ValorContribuicaoChurras.ToString("C")
+                                    </td>
+                                    <td>
+                                        @item.ValorContribuicaoBebidas.ToString("C")
+                                    </td>
+                                    <td>
+                                        @(@item.ParticipantePagou == true ? "Sim" : "Não")
+                                    </td>
+                                    <td>
+                                        <a asp-page="Participantes/Edit" asp-route-id="@item.Id" style="color: #dbb000;"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a asp-page="Participantes/Details" asp-route-id="@item.Id" style="color: #dbb000;"><i class="fa-solid fa-eye"></i></a>
+                                        <a asp-page="Participantes/Delete" asp-route-id="@item.Id" style="color: #dbb000;"><i class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    decimal valorRestante = 0;
+
+                    var quantidadeEstimativaPessoas = Model.Churrasco.EstimativaPessoas;
+
+                    var quantidadeParticipantesPagConfirmado = Model.Churrasco.Participantes.Where(p => p.ParticipantePagou).Count();
+
+                    <div class="text-end">
+                        <small>
+                            Valor total em churras: <label style="font-weight: 700">@Model.Churrasco.ValorContribuicaoChurras.ToString("C")</label>
+                        </small>
+
+                        <small>
+                            Valor total em bebidas: <label style="font-weight: 700">@Model.Churrasco.ValorContribuicaoChurras.ToString("C")</label>
+                        </small>
+
+                        <small>
+                            Valor total arrecadado: <label style="font-weight: 700">@Model.Churrasco.ValorContribuicaoTotal.ToString("C")</label>
+                        </small>
+
+                        <br />
+
+                        <small>
+                            Valor restante: <label style="font-weight: 700">@Model.Churrasco.ValorContribuicaoRestante.ToString("C")</label>
+                        </small>
+                    </div>
+                }
+                else
+                {
+                    <div class="text-end mt-3">
+                        <small style="font-weight: 700">Poxa, parece que ninguém foi convidado ainda! <br /> <a asp-page="Participantes/Create" style="color: #157347">Vamos convidar alguém, que tal?</a></small>
+                    </div>
+                }
+
             </div>
         </div>
-
-        @if (Model.Churrasco.Participantes.Count > 0)
-        {
-            @foreach (var item in Model.Churrasco.Participantes)
-            {
-                <p>@item.Nome</p>
-                <a asp-page="Participantes/Edit" asp-route-id="@item.Id">Edit</a>
-                <a asp-page="Participantes/Details" asp-route-id="@item.Id">Details</a>
-                <a asp-page="Participantes/Delete" asp-route-id="@item.Id">Delete</a>
-            }
-        }
-        else
-        {
-            <div class="text-center mt-3">
-                <h3 style="font-weight: 700">Poxa, parece que ninguém foi convidado ainda! <br /> <a asp-page="Participantes/Create" style="color: #157347">Vamos convidar alguém, que tal?</a></h3>
-            </div>
-        }
     </div>
 </section>
 
-@if (ViewData["Msg"] != null)
+@if (TempData["Msg"] != null)
 {
     <script>
         $(function () {
             $.confirm({
                 title: 'Tudo certo por aqui!',
-                content: '@ViewData["Msg"]',
+                content: '@TempData["Msg"]',
                 type: 'green',
                 typeAnimated: true,
                 buttons: {

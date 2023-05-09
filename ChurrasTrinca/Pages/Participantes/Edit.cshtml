@@ -20,13 +20,18 @@
                 <span asp-validation-for="Participante.Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Participante.ValorContribuicao" class="control-label"></label>
-                <input asp-for="Participante.ValorContribuicao" class="form-control" />
-                <span asp-validation-for="Participante.ValorContribuicao" class="text-danger"></span>
+                <label asp-for="Participante.ValorContribuicaoChurras" class="control-label"></label>
+                <input asp-for="Participante.ValorContribuicaoChurras" class="form-control" />
+                <span asp-validation-for="Participante.ValorContribuicaoChurras" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Participante.ValorContribuicaoBebidas" class="control-label"></label>
+                <input asp-for="Participante.ValorContribuicaoBebidas" class="form-control" />
+                <span asp-validation-for="Participante.ValorContribuicaoBebidas" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Participante.ParticipanteConfirmado" /> @Html.DisplayNameFor(model => model.Participante.ParticipanteConfirmado)
+                    <input class="form-check-input" asp-for="Participante.ParticipantePagou" /> @Html.DisplayNameFor(model => model.Participante.ParticipantePagou)
                 </label>
             </div>
             <div class="form-group">

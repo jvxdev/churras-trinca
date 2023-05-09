@@ -29,11 +29,23 @@
                             <span asp-validation-for="Churrasco.Nome" class="text-danger"></span>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label asp-for="Churrasco.ValorSugerido" class="control-label"></label>
-                            <input asp-for="Churrasco.ValorSugerido" class="form-control" placeholder="Ex: 599,99" />
-                            <span asp-validation-for="Churrasco.ValorSugerido" class="text-danger"></span>
+                            <label asp-for="Churrasco.ValorEstimadoChurrasco" class="control-label"></label>
+                            <input asp-for="Churrasco.ValorEstimadoChurrasco" class="form-control" placeholder="Ex: 599,99" />
+                            <span asp-validation-for="Churrasco.ValorEstimadoChurrasco" class="text-danger"></span>
                         </div>
-                        <div class="col-md-4 form-group mt-3 mt-md-0">
+                        <div class="col-md-4 form-group">
+                            <label asp-for="Churrasco.ValorEstimadoBebida" class="control-label"></label>
+                            <input asp-for="Churrasco.ValorEstimadoBebida" class="form-control" placeholder="Ex: 599,99" />
+                            <span asp-validation-for="Churrasco.ValorEstimadoBebida" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <label asp-for="Churrasco.EstimativaPessoas" class="control-label"></label>
+                            <input asp-for="Churrasco.EstimativaPessoas" class="form-control" type="date" />
+                            <span asp-validation-for="Churrasco.EstimativaPessoas" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
                             <label asp-for="Churrasco.Data" class="control-label"></label>
                             <input asp-for="Churrasco.Data" class="form-control" type="date" />
                             <span asp-validation-for="Churrasco.Data" class="text-danger"></span>

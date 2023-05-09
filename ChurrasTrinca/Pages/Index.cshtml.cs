@@ -21,7 +21,7 @@ namespace ChurrasTrinca.Pages
         {
             if (_context.Churrascos != null)
             {
-                Churrasco = await _context.Churrascos.ToListAsync();
+                Churrasco = await _context.Churrascos.Include(p => p.Participantes).ToListAsync();
             }
         }
     }

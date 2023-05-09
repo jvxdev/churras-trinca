@@ -8,9 +8,11 @@ namespace ChurrasTrinca.Models
 
         public string? Nome { get; set; }
 
-        public decimal ValorContribuicao { get; set; }
+        public decimal ValorContribuicaoChurras { get; set; }
 
-        public bool ParticipanteConfirmado { get; set; }
+        public decimal ValorContribuicaoBebidas { get; set; }
+
+        public bool ParticipantePagou { get; set; }
 
         [ForeignKey("Churrasco")]
         public int ChurrascoId { get; set; }

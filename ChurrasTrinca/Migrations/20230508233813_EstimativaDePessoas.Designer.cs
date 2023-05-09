@@ -4,6 +4,7 @@ using ChurrasTrinca.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChurrasTrinca.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230508233813_EstimativaDePessoas")]
+    partial class EstimativaDePessoas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,12 +49,6 @@ namespace ChurrasTrinca.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<decimal>("ValorContribuicaoBebidas")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ValorContribuicaoChurras")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("ValorEstimadoBebida")
                         .HasColumnType("decimal(18,2)");

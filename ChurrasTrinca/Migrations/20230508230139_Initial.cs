@@ -58,10 +58,9 @@ namespace ChurrasTrinca.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    ValorSugerido = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Data = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ValorArrecadado = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    TotalParticipantes = table.Column<int>(type: "int", nullable: true)
+                    ValorEstimadoChurrasco = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ValorEstimadoBebida = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Data = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -181,8 +180,9 @@ namespace ChurrasTrinca.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ValorContribuicao = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ParticipanteConfirmado = table.Column<bool>(type: "bit", nullable: false),
+                    ValorContribuicaoChurras = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ValorContribuicaoBebidas = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ParticipantePagou = table.Column<bool>(type: "bit", nullable: false),
                     ChurrascoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

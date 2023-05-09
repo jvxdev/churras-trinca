@@ -16,21 +16,70 @@ namespace ChurrasTrinca.Models
         [Display(Name = ("Descrição"))]
         public string? Descricao { get; set; }
 
-        [Required(ErrorMessage = "O campo Valor sugerido (R$) é obrigatório!")]
-        [Display(Name = ("Valor sugerido (R$)"))]
+        [Required(ErrorMessage = "O campo Valor estima. de churrasco é obrigatório!")]
+        [Display(Name = "Valor estima. de churras")]
         [DisplayFormat(DataFormatString = "{0:C}")]
         [DataType(DataType.Currency)]
-        public decimal ValorSugerido { get; set; }
+        public decimal ValorEstimadoChurrasco { get; set; }
+
+        [Required(ErrorMessage = "O campo Valor estima. de bebidas é obrigatório!")]
+        [Display(Name = "Valor estima. de bebidas")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        [DataType(DataType.Currency)]
+        public decimal ValorEstimadoBebida { get; set; }
+
+        [Required(ErrorMessage = "O campo Estima. de pessoas é obrigatório!")]
+        [Display(Name = "Estimativa de pessoas")]
+        public int EstimativaPessoas { get; set; }
 
         [Required(ErrorMessage = "O campo Data é obrigatório!")]
         [DisplayFormat(DataFormatString = "{0:dd/MM}")]
         public DateTime? Data { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal? ValorArrecadado { get; set; }
+        private ICollection<Participante> _participantes;
 
-        public int? TotalParticipantes { get; set; }
+        public ICollection<Participante> Participantes
+        {
+            get
+            {
+                return _participantes;
+            }
+            set
+            {
+                _participantes = value;
 
-        public virtual IList<Participante>? Participantes { get; set; }
+                GetContribuicaoTotal();
+            }
+        }
+
+        public decimal ValorContribuicaoChurras { get; set; }
+
+        public decimal ValorContribuicaoBebidas { get; set; }
+
+        public decimal ValorContribuicaoTotal
+        {
+            get
+            {
+                return ValorContribuicaoChurras + ValorContribuicaoBebidas;
+            }
+        }
+
+        public decimal ValorContribuicaoRestante
+        {
+            get
+            {
+                return ValorEstimadoChurrasco + ValorEstimadoBebida - ValorContribuicaoTotal;
+            }
+        }
+
+        private void GetContribuicaoTotal() 
+        {
+            foreach (var participante in Participantes) 
+            {
+                ValorContribuicaoChurras += participante.ValorContribuicaoChurras;
+
+                ValorContribuicaoBebidas += participante.ValorContribuicaoBebidas;
+            }
+        }
     }
 }

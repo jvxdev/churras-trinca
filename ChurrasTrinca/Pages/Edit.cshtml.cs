@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using ChurrasTrinca.Data;
 using ChurrasTrinca.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace ChurrasTrinca.Pages
 {
@@ -59,6 +60,8 @@ namespace ChurrasTrinca.Pages
             try
             {
                 await _context.SaveChangesAsync();
+
+                TempData["Msg"] = "O churras foi editado com sucesso!";
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -72,9 +75,7 @@ namespace ChurrasTrinca.Pages
                 }
             }
 
-            ViewData["Msg"] = "O churras foi editado com sucesso!";
-
-            return Page();
+            return Redirect($"Edit?id={Churrasco.Id}");
         }
 
         private bool ChurrascoExists(int id)

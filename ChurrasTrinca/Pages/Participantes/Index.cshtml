@@ -17,10 +17,13 @@
                 @Html.DisplayNameFor(model => model.Participante[0].Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Participante[0].ValorContribuicao)
+                @Html.DisplayNameFor(model => model.Participante[0].ValorContribuicaoChurras)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Participante[0].ParticipanteConfirmado)
+                @Html.DisplayNameFor(model => model.Participante[0].ValorContribuicaoBebidas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participante[0].ParticipantePagou)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Participante[0].Churrasco)
@@ -35,10 +38,13 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ValorContribuicao)
+                @Html.DisplayFor(modelItem => item.ValorContribuicaoChurras)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ParticipanteConfirmado)
+                @Html.DisplayFor(modelItem => item.ValorContribuicaoBebidas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantePagou)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Churrasco.Descricao)

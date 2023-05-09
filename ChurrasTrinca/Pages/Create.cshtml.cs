@@ -12,9 +12,9 @@ namespace ChurrasTrinca.Pages
 {
     public class CreateModel : PageModel
     {
-        private readonly ChurrasTrinca.Data.AppDbContext _context;
+        private readonly AppDbContext _context;
 
-        public CreateModel(ChurrasTrinca.Data.AppDbContext context)
+        public CreateModel(AppDbContext context)
         {
             _context = context;
         }
@@ -27,8 +27,6 @@ namespace ChurrasTrinca.Pages
         [BindProperty]
         public Churrasco Churrasco { get; set; } = default!;
         
-
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
           if (!ModelState.IsValid || _context.Churrascos == null || Churrasco == null)

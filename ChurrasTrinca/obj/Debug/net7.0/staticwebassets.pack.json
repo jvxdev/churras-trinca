@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
+      "Id": "C:\\Users\\jvxvj\\Desktop\\Projeto2\\ChurrasTrinca\\ChurrasTrinca\\wwwroot\\css\\table.css",
+      "PackagePath": "staticwebassets\\css\\table.css"
+    },
+    {
       "Id": "C:\\Users\\jvxvj\\Desktop\\Projeto2\\ChurrasTrinca\\ChurrasTrinca\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

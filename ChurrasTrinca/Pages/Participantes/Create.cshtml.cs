@@ -21,7 +21,7 @@ namespace ChurrasTrinca.Pages.Participantes
 
         public IActionResult OnGet()
         {
-        ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Descricao");
+        ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Nome");
             return Page();
         }
 

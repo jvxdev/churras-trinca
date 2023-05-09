@@ -43,6 +43,14 @@
                 <div class="row">
                     @foreach (var item in Model.Churrasco)
                     {
+                        decimal valorEstimadoChurras = 0;
+                        decimal valorEstimadoBebidas = 0;
+
+                        valorEstimadoChurras += item.ValorEstimadoChurrasco;
+                        valorEstimadoBebidas += item.ValorEstimadoBebida;
+
+                        decimal ValorTotalEstimado = valorEstimadoBebidas + valorEstimadoChurras;
+
                         <div class="col-xl-4 d-flex mb-3 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                             <div class="icon-box mt-4 mt-xl-0">
                                 <i class="bx bx-receipt"></i>
@@ -55,7 +63,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="text-end" title="Participantes">
-                                            <i class="fa-solid fa-person"></i> @Html.DisplayFor(modelItem => item.TotalParticipantes)
+                                            <i class="fa-solid fa-person"></i> @(@item.Participantes.Count() > 0 ? item.Participantes.Count() : 0)
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +80,7 @@
                                         <a asp-page="./Delete" asp-route-id="@item.Id" title="Deletar"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                     <div class="col-8 text-end" title="Valor sugerido">
-                                        <i class="fa-solid fa-dollar-sign"></i> @Html.DisplayFor(modelItem => item.ValorSugerido)
+                                        <i class="fa-solid fa-dollar-sign"></i> @(@ValorTotalEstimado)
                                     </div>
                                 </div>
                             </div>

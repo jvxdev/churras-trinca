@@ -6,43 +6,135 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<div>
-    <h4>Churrasco</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Churrasco.Nome)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Churrasco.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Churrasco.Descricao)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Churrasco.Descricao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Churrasco.ValorEstimadoChurrasco)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Churrasco.ValorEstimadoChurrasco)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Churrasco.ValorEstimadoBebida)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Churrasco.ValorEstimadoBebida)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Churrasco.Data)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Churrasco.Data)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Churrasco?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+<section id="contact" class="contact">
+    <div class="container p-5" style="box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+
+        <div class="text-start">
+            <h3 style="font-weight: 700"><a asp-page="Index" title="Voltar para a Home" style="color: #157347; ">Voltar</a></h3>
+        </div>
+
+        <div class="section-title">
+            <h1 data-aos="fade-up">Detalhes do Churras</h1>
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-xl-9 col-lg-12 mt-4">
+                <input type="hidden" asp-for="Churrasco.Id" />
+                <div class="row">
+                    <div class="col-md-4 form-group">
+                        <label asp-for="Churrasco.Nome" class="control-label"></label>
+                        <input asp-for="Churrasco.Nome" class="form-control" disabled />
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label asp-for="Churrasco.ValorEstimadoChurrasco" class="control-label"></label>
+                        <input asp-for="Churrasco.ValorEstimadoChurrasco" class="form-control" disabled />
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label asp-for="Churrasco.ValorEstimadoBebida" class="control-label"></label>
+                        <input asp-for="Churrasco.ValorEstimadoBebida" class="form-control" disabled />
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        <label asp-for="Churrasco.EstimativaPessoas" class="control-label"></label>
+                        <input asp-for="Churrasco.EstimativaPessoas" class="form-control" type="text" disabled />
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        <label asp-for="Churrasco.Data" class="control-label"></label>
+                        <input asp-for="Churrasco.Data" class="form-control" type="date" disabled />
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <label asp-for="Churrasco.Descricao" class="control-label"></label>
+                    <textarea asp-for="Churrasco.Descricao" rows="5" placeholder="Descreva um pouco do que vai rolar" required class="form-control" disabled></textarea>
+                </div>
+
+                <hr />
+
+                <!-- TABELA DE PARTICIPANTES -->
+                @if (Model.Churrasco.Participantes.Count() > 0)
+                {
+                    <a asp-page="./Edit" asp-route-id="@Model.Churrasco?.Id" class="btn btn-success">Quer convidar mais pessoas? Então clica aqui para editar esse Churras!</a>
+
+                    <table class="styled-table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nome
+                                </th>
+                                <th>
+                                    Valor em Churras
+                                </th>
+                                <th>
+                                    Valor em Bebidas
+                                </th>
+                                <th>
+                                    Já pagou?
+                                </th>
+                                <th>
+                                    Ações
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Churrasco.Participantes)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Nome
+                                    </td>
+                                    <td>
+                                        @item.ValorContribuicaoChurras.ToString("C")
+                                    </td>
+                                    <td>
+                                        @item.ValorContribuicaoBebidas.ToString("C")
+                                    </td>
+                                    <td>
+                                        @(@item.ParticipantePagou == true ? "Sim" : "Não")
+                                    </td>
+                                    <td>
+                                        <a asp-page="/Participantes/Edit" asp-route-id="@item.Id" style="color: #dbb000;"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a asp-page="/Participantes/Details" asp-route-id="@item.Id" style="color: #dbb000;"><i class="fa-solid fa-eye"></i></a>
+                                        <a asp-page="/Participantes/Delete" asp-route-id="@item.Id" style="color: #dbb000;"><i class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <div class="text-end">
+                        <div class="row">
+
+                            <small>
+                                Valor total em churras: <label style="font-weight: 700">@Model.Churrasco.ValorContribuicaoChurras.ToString("C")</label>
+                            </small>
+
+                            <small>
+                                Valor total em bebidas: <label style="font-weight: 700">@Model.Churrasco.ValorContribuicaoBebidas.ToString("C")</label>
+                            </small>
+
+                            <small>
+                                Valor total arrecadado: <label style="font-weight: 700">@Model.Churrasco.ValorContribuicaoTotal.ToString("C")</label>
+                            </small>
+
+                            <small>
+                                Valor restante: <label style="font-weight: 700">@Model.Churrasco.ValorContribuicaoRestante.ToString("C")</label>
+                            </small>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center mt-3">
+                        <h3 style="font-weight: 700">Poxa, parece que ninguém foi convidado ainda! <br /> 
+                            <a asp-page="./Edit" asp-route-id="@Model.Churrasco?.Id" style="color: #157347">
+                                Você quer editar esse Churras? Então clica aqui!
+                                </a>
+                        </h3>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

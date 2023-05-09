@@ -35,8 +35,6 @@ namespace ChurrasTrinca.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM}")]
         public DateTime? Data { get; set; }
 
-        public ICollection<Participante>? Participantes { get; set; }
-
         public decimal ValorContribuicaoChurras { get; set; }
 
         public decimal ValorContribuicaoBebidas { get; set; }
@@ -44,6 +42,8 @@ namespace ChurrasTrinca.Models
         public decimal ValorContribuicaoTotal => ValorContribuicaoChurras + ValorContribuicaoBebidas;
 
         public decimal ValorContribuicaoRestante => ValorEstimadoChurrasco + ValorEstimadoBebida - ValorContribuicaoTotal;
+
+        public ICollection<Participante>? Participantes { get; set; }
 
         public void SetContribuicaoTotal(Participante participante) 
         {

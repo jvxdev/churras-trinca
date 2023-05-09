@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ChurrasTrinca.Data;
 using ChurrasTrinca.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChurrasTrinca.Pages.Participantes
 {
+    [Authorize]
     public class DeleteModel : PageModel
     {
         private readonly ChurrasTrinca.Data.AppDbContext _context;

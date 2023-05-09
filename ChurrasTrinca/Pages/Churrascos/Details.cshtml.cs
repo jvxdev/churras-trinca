@@ -21,6 +21,10 @@ namespace ChurrasTrinca.Pages.Churrascos
             _context = context;
         }
 
+
+        [BindProperty]
+        public Participante Participante { get; set; } = default!;
+
         [BindProperty]
         public Churrasco Churrasco { get; set; } = default!;
 
@@ -32,6 +36,7 @@ namespace ChurrasTrinca.Pages.Churrascos
             }
 
             var churrasco = await _context.Churrascos.FirstOrDefaultAsync(m => m.Id == id);
+
             if (churrasco == null)
             {
                 return NotFound();
@@ -40,6 +45,16 @@ namespace ChurrasTrinca.Pages.Churrascos
             {
                 Churrasco = churrasco;
             }
+
+            if (churrasco.Participantes != null)
+            {
+                foreach (var participante in churrasco.Participantes.Where(p => p.ChurrascoId == id))
+
+                    Churrasco.SetContribuicaoTotal(participante);
+            }
+
+            Churrasco.Participantes = await _context.Participantes.Where(p => p.ChurrascoId == id).Include(x => x.Churrasco).ToListAsync();
+
             return Page();
         }
     }

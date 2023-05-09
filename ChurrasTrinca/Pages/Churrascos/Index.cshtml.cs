@@ -19,9 +19,6 @@ namespace ChurrasTrinca.Pages.Churrascos
         public IList<Churrasco> Churrasco { get;set; } = default!;
 
         [BindProperty]
-        public Churrasco GetChurras { get; set; } = default!;
-
-        [BindProperty]
         public Participante Participante { get; set; } = default!;
 
         public async Task OnGetAsync()

@@ -62,8 +62,8 @@ namespace ChurrasTrinca.Migrations
                     ValorEstimadoBebida = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     EstimativaPessoas = table.Column<int>(type: "int", nullable: false),
                     Data = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ValorEstimadoContribuicaoChurras = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ValorEstimadoContribuicaoBebidas = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    ValorContribuicaoChurras = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ValorContribuicaoBebidas = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {

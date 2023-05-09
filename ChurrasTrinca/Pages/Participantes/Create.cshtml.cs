@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ChurrasTrinca.Data;
 using ChurrasTrinca.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChurrasTrinca.Pages.Participantes
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly AppDbContext _context;
@@ -40,6 +42,8 @@ namespace ChurrasTrinca.Pages.Participantes
             TempData["Msg"] = "O participante foi convidado com sucesso!";
 
             var churrasId = Participante.ChurrascoId;
+
+            ViewData["ChurrasId"] = churrasId;
 
             return Redirect($"../Churrascos/Edit?id={churrasId}");
         }

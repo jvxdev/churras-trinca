@@ -48,10 +48,11 @@ namespace ChurrasTrinca.Pages.Churrascos
 
             if (churrasco.Participantes != null)
             {
-                foreach (var participante in churrasco.Participantes)
-
+                foreach (var participante in churrasco.Participantes.Where(p => p.ChurrascoId == id))
                 Churrasco.SetContribuicaoTotal(participante);
             }
+
+            Churrasco.Participantes = await _context.Participantes.Where(p => p.ChurrascoId == id).Include(x => x.Churrasco).ToListAsync();
 
             return Page();
         }
@@ -83,7 +84,7 @@ namespace ChurrasTrinca.Pages.Churrascos
                 }
             }
 
-            return Redirect($"Edit?id={Churrasco.Id}");
+            return Page();
         }
 
         private bool ChurrascoExists(int id)

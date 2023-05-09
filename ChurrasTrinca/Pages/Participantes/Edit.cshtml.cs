@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ChurrasTrinca.Data;
 using ChurrasTrinca.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChurrasTrinca.Pages.Participantes
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly ChurrasTrinca.Data.AppDbContext _context;

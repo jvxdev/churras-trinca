@@ -44,10 +44,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2h1cnJhc2Nvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/teste/churras-trinca/churras-trinca/ChurrasTrinca/Pages/Churrascos/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2h1cnJhc2Nvc1xFcnJvci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/jvxvj/Desktop/teste/churras-trinca/churras-trinca/ChurrasTrinca/Pages/Churrascos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2h1cnJhc2Nvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,10 +66,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/jvxvj/Desktop/teste/churras-trinca/churras-trinca/ChurrasTrinca/Pages/Participantes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRlc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/jvxvj/Desktop/teste/churras-trinca/churras-trinca/ChurrasTrinca/Pages/Participantes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jvxvj/Desktop/teste/churras-trinca/churras-trinca/ChurrasTrinca/Pages/Shared/_ValidationScriptsPartial.cshtml]

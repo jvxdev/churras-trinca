@@ -17,10 +17,10 @@
             dependendo sempre do tipo de carne e lenha disponíveis.
         </h2>
         <div class="d-flex align-items-center">
-            @if (Model.Churrasco.Count > 0)
+            @if (Model.Churrasco.Count() > 0)
             {
                 <h2>
-                    Se quiser marcar outro churras, é só clicar <a asp-page="/Create" title="Marcar outro churras" style="font-size: 40px">aqui</a>, beleza?
+                    Se quiser marcar outro churras, é só clicar <a asp-page="/Churrascos/Create" title="Marcar outro churras">aqui</a>, beleza?
                 </h2>
             }
             else
@@ -37,7 +37,7 @@
 
 <section id="why-us" class="why-us">
     <div class="container">
-        @if (Model.Churrasco.Count > 0)
+        @if (Model.Churrasco.Count() > 0)
         {
             <div class="icon-boxes d-flex flex-column justify-content-center">
                 <div class="row">
@@ -62,7 +62,7 @@
 
                                 <div class="mb-4">
                                     <h4>@Html.DisplayFor(modelItem => item.Nome)</h4>
-                                    <p style="text-align: justify; height: 70px;">@Html.Raw(item.Descricao.ToString().Length > 50 ? string.Format("{0}...", item.Descricao.ToString().Substring(0,80)) : item.Descricao.ToString())</p>                                    
+                                    <p style="text-align: justify; height: 70px;">@Html.Raw(item.Descricao.ToString().Length > 50 ? string.Format("{0}...", item.Descricao.ToString().Substring(0,80)) : item.Descricao.ToString())</p>
                                 </div>
 
                                 <div class="row">
@@ -73,7 +73,7 @@
                                     </div>
 
                                     <div class="col-8 text-end" title="Valor total de contribuição">
-                                        <i class="fa-solid fa-dollar-sign"></i> @Html.DisplayFor(modelItem => item.ValorContribuicaoTotal)
+                                        <i class="fa-solid fa-dollar-sign"></i> @item.ValorContribuicaoTotal.ToString("C")
                                     </div>
                                 </div>
                             </div>

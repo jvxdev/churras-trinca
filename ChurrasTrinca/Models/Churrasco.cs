@@ -19,7 +19,7 @@ namespace ChurrasTrinca.Models
         [Display(Name = ("Informações adicionais"))]
         public string? InfoAdicionais { get; set; }
 
-        [Required(ErrorMessage = "O campo Valor estima. de churrasco é obrigatório!")]
+        [Required(ErrorMessage = "O campo Valor estima. de churras é obrigatório!")]
         [Display(Name = "Valor estima. de churras")]
         [DisplayFormat(DataFormatString = "{0:C}")]
         [DataType(DataType.Currency)]
@@ -31,7 +31,7 @@ namespace ChurrasTrinca.Models
         [DataType(DataType.Currency)]
         public decimal ValorEstimadoBebida { get; set; }
 
-        [Required(ErrorMessage = "O campo Estima. de pessoas é obrigatório!")]
+        [Required(ErrorMessage = "O campo Estimativa de pessoas é obrigatório!")]
         [Display(Name = "Estimativa de pessoas")]
         public int EstimativaPessoas { get; set; }
 

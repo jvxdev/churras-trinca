@@ -218,7 +218,7 @@ h2 {
         .navbar .active,
         .navbar .active:focus,
         .navbar li:hover > a {
-            color: #ff5821;
+            color: #d7ad00;
         }
 
     .navbar .getstarted,
@@ -2296,7 +2296,7 @@ section {
     #footer .social-links a {
         font-size: 18px;
         display: inline-block;
-        background: #ff5821;
+        background: #d7ad00;
         color: #fff;
         line-height: 1;
         padding: 8px 0;
@@ -2309,7 +2309,7 @@ section {
     }
 
         #footer .social-links a:hover {
-            background: #ff7e54;
+            background: #ffd528;
             color: #fff;
             text-decoration: none;
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LHQWL3VkgMJjNCPVAkssPk2qbXIOf9/xdyL8rJ8x2CiNvw7G+W6HBpx+veHyF5BiZZ7WP0mybJ84d8epz3Kirw==",
+  "dgSpecHash": "UGipZ2Uq8HXVplhzl4lLEj1rT7aVBN0Lnw+GN9+V4sPz2xlLUcl1N/ErS4rjaiZA2+W5rswuN3EugTCeXxorSQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jvxvj\\Desktop\\desafio-tecnico\\churras-trinca\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
+  "projectFilePath": "C:\\Users\\jvxvj\\Desktop\\Nova pasta\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jvxvj\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\jvxvj\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

@@ -15,6 +15,10 @@ namespace ChurrasTrinca.Models
         [Display(Name = ("Descrição"))]
         public string? Descricao { get; set; }
 
+        [StringLength(150, ErrorMessage = "A {0} deve ter entre {2} a {1} caracteres.", MinimumLength = 3)]
+        [Display(Name = ("Informações adicionais"))]
+        public string? InfoAdicionais { get; set; }
+
         [Required(ErrorMessage = "O campo Valor estima. de churrasco é obrigatório!")]
         [Display(Name = "Valor estima. de churras")]
         [DisplayFormat(DataFormatString = "{0:C}")]

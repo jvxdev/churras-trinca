@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jvxvj\\Desktop\\desafio-tecnico\\churras-trinca\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj": {}
+    "C:\\Users\\jvxvj\\Desktop\\Nova pasta\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jvxvj\\Desktop\\desafio-tecnico\\churras-trinca\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj": {
+    "C:\\Users\\jvxvj\\Desktop\\Nova pasta\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jvxvj\\Desktop\\desafio-tecnico\\churras-trinca\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
+        "projectUniqueName": "C:\\Users\\jvxvj\\Desktop\\Nova pasta\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
         "projectName": "ChurrasTrinca",
-        "projectPath": "C:\\Users\\jvxvj\\Desktop\\desafio-tecnico\\churras-trinca\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
+        "projectPath": "C:\\Users\\jvxvj\\Desktop\\Nova pasta\\churras-trinca\\ChurrasTrinca\\ChurrasTrinca.csproj",
         "packagesPath": "C:\\Users\\jvxvj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jvxvj\\Desktop\\desafio-tecnico\\churras-trinca\\churras-trinca\\ChurrasTrinca\\obj\\",
+        "outputPath": "C:\\Users\\jvxvj\\Desktop\\Nova pasta\\churras-trinca\\ChurrasTrinca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jvxvj\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -64,14 +64,13 @@ namespace ChurrasTrinca.Pages.Participantes
             {
                 Participante = participante;
 
-                var participanteList = await _context.Participantes.Where(c => c.Id == id).ToListAsync();
-
                 //CALCULA O VALOR DE CONTRIB. EM CHURRAS E BEBIDAS
                 var valorTotal = participante.ValorContribuicaoChurras + participante.ValorContribuicaoBebidas;
 
                 var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == Participante.ChurrascoId);
 
                 //ARMAZENA O VALOR TOTAL DA CONTRIBUIÇÃO SUBTRAINDO DO VALOR TOTAL QUE JÁ ESTAVA ARMAZENADO
+                if (participante.ParticipanteConfirmado)
                 churrasco.ValorTotalArrecadado = churrasco.ValorTotalArrecadado - valorTotal;
 
                 _context.Participantes.Remove(Participante);

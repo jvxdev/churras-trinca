@@ -78,11 +78,9 @@ namespace ChurrasTrinca.Pages.Participantes
                 return Page();
             }
 
-            var participantes = await _context.Participantes.Where(c => c.Id == Participante.Id).Include(x => x.Churrasco).ToListAsync();
+            decimal valorChurrasOld = await _context.Participantes.Where(c => c.Id == Participante.Id).Select(p => p.ValorContribuicaoChurras).FirstOrDefaultAsync();
 
-            decimal valorChurrasOld = participantes.Select(p => p.ValorContribuicaoChurras).FirstOrDefault();
-
-            decimal valorBebidaOld = participantes.Select(p => p.ValorContribuicaoBebidas).FirstOrDefault();
+            decimal valorBebidaOld = await _context.Participantes.Where(c => c.Id == Participante.Id).Select(p => p.ValorContribuicaoBebidas).FirstOrDefaultAsync();
 
             _context.Attach(Participante).State = EntityState.Modified;
 
@@ -90,6 +88,8 @@ namespace ChurrasTrinca.Pages.Participantes
 
             try
             {
+                var participantes = await _context.Participantes.Where(c => c.Id == Participante.Id).Include(x => x.Churrasco).ToListAsync();
+
                 decimal valorTotal = 0;
 
                 if (participantes != null)

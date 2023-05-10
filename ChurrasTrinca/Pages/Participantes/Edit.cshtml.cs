@@ -90,23 +90,21 @@ namespace ChurrasTrinca.Pages.Participantes
             {
                 var participantes = await _context.Participantes.Where(c => c.Id == Participante.Id).Include(x => x.Churrasco).ToListAsync();
 
-                decimal valorTotal = 0;
+                decimal valorTotalNew = 0;
+
+                decimal valorTotalOld = valorChurrasOld + valorBebidaOld;
 
                 if (participantes != null)
                 {
                     //INCREMENTA O VALOR DE CONTRIB. DE CHURRAS E BEBIDAS DE ACORDO COM A QUANT. DE PARTICIPANTES DO CHURRASCO
                     foreach (var participante in participantes)
-                        valorTotal = valorTotal += participante.ValorContribuicaoChurras + participante.ValorContribuicaoBebidas;
+                        valorTotalNew = valorTotalNew += participante.ValorContribuicaoChurras + participante.ValorContribuicaoBebidas;
                 }
 
-                decimal valorTotalOld = valorChurrasOld + valorBebidaOld;
-
-                churrasco.ValorTotalArrecadado -= valorTotalOld;
-
                 if (Participante.ParticipanteConfirmado)
-                    churrasco.ValorTotalArrecadado += valorTotal;
+                    churrasco.ValorTotalArrecadado += valorTotalNew;
                 else
-                    churrasco.ValorTotalArrecadado -= valorTotal;
+                    churrasco.ValorTotalArrecadado -= valorTotalOld;
 
                 await _context.SaveChangesAsync();
 

@@ -36,7 +36,24 @@ namespace ChurrasTrinca.Pages.Participantes
 
             var participante = await _context.Participantes.FirstOrDefaultAsync(m => m.Id == id);
 
-            var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == churrasId);
+            ViewData["ChurrascoId"] = new SelectList(_context.Churrascos.Where(c => c.Id == churrasId), "Id", "Nome");
+
+            var churrasco = await _context.Churrascos.FirstOrDefaultAsync(m => m.Id == churrasId);
+
+            //CALCULA VALOR ESTIMADO DE CHURRAS + BEBIDAS
+            var valorEstimadoTotal = churrasco.ValorEstimadoChurrasco + churrasco.ValorEstimadoBebida;
+
+            //PEGA QUANT. PARTICIPANTES QUE JÁ FORAM CONFIRMADOS
+            var participantesConfirmados = _context.Participantes.Where(p => p.ChurrascoId == churrasId && p.ParticipanteConfirmado).Count();
+
+            //PEGA A QUANT. ESTIMADA DE PESSOAS
+            var estimativaParticipantesTotal = churrasco.EstimativaPessoas + participantesConfirmados;
+
+            //CALCULO O VALOR SUGERIDO DIVIDINDO O VALOR ESTIMADO TOTAL PELA ESTIMATIVA DE PESSOAS +
+            //OS PARTICIPANTES JÁ CONFIRMADOS, DIVIDE POR DOIS E ARREDONDA VALOR PARA 2 CASAS DECIMAIS
+            var valorSugerido = Math.Round(valorEstimadoTotal / estimativaParticipantesTotal / 2, 2);
+
+            ViewData["ValorSugerido"] = valorSugerido;
 
             if (participante == null)
             {
@@ -67,9 +84,14 @@ namespace ChurrasTrinca.Pages.Participantes
 
             try
             {
+                //CALCULA O VALOR DE CONTRIB. EM CHURRAS E BEBIDAS
                 var valorTotal = Participante.ValorContribuicaoChurras + Participante.ValorContribuicaoBebidas;
 
-                churrasco.ValorContribuicaoTotal = valorTotal;
+                //ACRESCENTA AO CHURRASCO O VALOR TOTAL DA CONTRIBUIÇÃO DO PARTICIPANTE (CHURRAS + BEBIDAS)
+                if (Participante.ParticipanteConfirmado)
+                    churrasco.ValorTotalArrecadado += valorTotal;
+                else
+                    churrasco.ValorTotalArrecadado -= valorTotal;
 
                 await _context.SaveChangesAsync();
 

@@ -39,7 +39,7 @@ namespace ChurrasTrinca.Models
 
         public decimal ValorContribuicaoBebidas { get; set; }
         
-        public decimal ValorContribuicaoTotal { get; set; }
+        public decimal ValorTotalArrecadado { get; set; }
 
         public decimal ValorEstimadoTotal => ValorContribuicaoChurras + ValorContribuicaoBebidas;
 

@@ -36,7 +36,7 @@ namespace ChurrasTrinca.Pages.Churrascos
                 return NotFound();
             }
 
-            var churrasco = await _context.Churrascos.Include(x => x.Participantes).FirstOrDefaultAsync();
+            var churrasco = await _context.Churrascos.Where(c => c.Id == id).Include(x => x.Participantes).FirstOrDefaultAsync();
 
             if (churrasco == null)
             {
@@ -48,7 +48,7 @@ namespace ChurrasTrinca.Pages.Churrascos
             if (churrasco.Participantes != null)
             {
                 foreach (var participante in churrasco.Participantes.Where(p => p.ChurrascoId == id))
-                Churrasco.SetContribuicaoTotal(participante);
+                    Churrasco.SetContribuicaoTotal(participante);
             }
 
             Churrasco.Participantes = await _context.Participantes.Where(p => p.ChurrascoId == id).Include(x => x.Churrasco).ToListAsync();
@@ -63,7 +63,22 @@ namespace ChurrasTrinca.Pages.Churrascos
                 return Page();
             }
 
-            _context.Attach(Churrasco).State = EntityState.Modified;
+            _context.Entry(Churrasco).State = EntityState.Modified;
+
+            var churrasId = Churrasco.Id;
+
+            var participantes = await _context.Participantes.Where(c => c.ChurrascoId == churrasId).Include(x => x.Churrasco).ToListAsync();
+
+            decimal valorTotal = 0;
+
+            if (participantes != null)
+            {
+                //INCREMENTA O VALOR DE CONTRIB. DE CHURRAS E BEBIDAS DE ACORDO COM A QUANT. DE PARTICIPANTES DO CHURRASCO
+                foreach (var participante in participantes)
+                    valorTotal = valorTotal += participante.ValorContribuicaoChurras + participante.ValorContribuicaoBebidas;
+            }
+
+            Churrasco.ValorTotalArrecadado = valorTotal;
 
             try
             {
@@ -88,7 +103,7 @@ namespace ChurrasTrinca.Pages.Churrascos
 
         private bool ChurrascoExists(int id)
         {
-          return (_context.Churrascos?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Churrascos?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -47,9 +47,7 @@ namespace ChurrasTrinca.Pages.Participantes
                 Churrasco = churrasco;
             }
 
-            var nomeChurras = _context.Churrascos.Where(c => c.Id == churrasId).Select(c => c.Nome).FirstOrDefault();
-
-            ViewData["Churrasco"] = nomeChurras;
+            ViewData["ChurrascoId"] = new SelectList(_context.Churrascos.Where(c => c.Id == churrasId), "Id", "Nome");
 
             return Page();
         }

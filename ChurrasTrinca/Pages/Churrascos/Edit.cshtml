@@ -83,7 +83,7 @@
                                     Valor em Bebidas
                                 </th>
                                 <th>
-                                    Já pagou?
+                                    Participante confirmado
                                 </th>
                                 <th>
                                     Ações
@@ -141,8 +141,8 @@
                 else
                 {
                     <div class="text-center mt-3">
-                        <h3 style="font-weight: 700">Poxa, parece que ninguém foi convidado ainda! <br /> 
-                            <a asp-page="/Participantes/Create" style="color: #157347">
+                        <h3 style="font-weight: 700">Poxa, parece que ninguém foi convidado ainda! <br />
+                            <a asp-page="/Participantes/Create" asp-route-ChurrasId="@Model.Churrasco?.Id" style="color: #157347">
                                 Vamos convidar alguém, que tal?
                             </a>
                         </h3>

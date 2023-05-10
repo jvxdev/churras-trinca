@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ChurrasTrinca.Data;
 using ChurrasTrinca.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChurrasTrinca.Pages.Churrascos
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly AppDbContext _context;

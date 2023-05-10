@@ -2,7 +2,7 @@
 
 namespace ChurrasTrinca.ViewModels
 {
-    public class Login
+    public class LoginViewModel
     {
         [Required]
         [DataType(DataType.EmailAddress)]

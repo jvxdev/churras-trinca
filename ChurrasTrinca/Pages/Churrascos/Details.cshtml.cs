@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ChurrasTrinca.Data;
 using ChurrasTrinca.Models;
 using Microsoft.AspNetCore.Authorization;
+using ChurrasTrinca.ViewModels;
 
 namespace ChurrasTrinca.Pages.Churrascos
 {

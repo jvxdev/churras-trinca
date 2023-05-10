@@ -11,7 +11,7 @@ namespace ChurrasTrinca.Pages.Account
         private readonly SignInManager<IdentityUser> signInManager;
 
         [BindProperty]
-        public Register Model { get; set; }
+        public RegisterViewModel Model { get; set; }
 
         public RegisterModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {

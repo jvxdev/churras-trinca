@@ -37,7 +37,7 @@
 
 <section id="why-us" class="why-us">
     <div class="container">
-        @if (Model.Churrasco.Count() > 0)
+        @if (Model.Churrasco.Count > 0)
         {
             <div class="icon-boxes d-flex flex-column justify-content-center">
                 <div class="row">
@@ -72,8 +72,8 @@
                                         <a asp-page="./Delete" asp-route-id="@item.Id" title="Deletar"><i class="fa-solid fa-trash"></i></a>
                                     </div>
 
-                                    <div class="col-8 text-end" title="Valor total de contribuição">
-                                        <i class="fa-solid fa-dollar-sign"></i> @item.ValorContribuicaoTotal.ToString("C")
+                                    <div class="col-8 text-end" title="Valor total arrecadado">
+                                        <i class="fa-solid fa-dollar-sign"></i> @item.ValorTotalArrecadado.ToString("C")
                                     </div>
                                 </div>
                             </div>

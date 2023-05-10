@@ -19,6 +19,13 @@
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
             <div class="col-xl-9 col-lg-12 mt-4">
                 <form method="post">
+
+                    <p class="mb-3">
+                        Valor sugerido para churras e bebidas (cada):  <label style="font-weight: 500">R$ @ViewData["ValorSugerido"]</label>
+                    </p>
+
+                    <hr />
+
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Participante.Id" />
                     <div class="row">

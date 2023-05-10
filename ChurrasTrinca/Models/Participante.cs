@@ -7,11 +7,15 @@ namespace ChurrasTrinca.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "O campo Nome é obrigatório!")]
+        [StringLength(100, ErrorMessage = "O {0} deve ter entre {2} a {1} caracteres.", MinimumLength = 3)]
         public string? Nome { get; set; }
 
+        [Required(ErrorMessage = "O campo Valor de contrib. de churras é obrigatório!")]
         [Display(Name = "Valor de contrib. de churras")]
         public decimal ValorContribuicaoChurras { get; set; }
 
+        [Required(ErrorMessage = "O campo Valor de contrib. de bebidas é obrigatório!")]
         [Display(Name = "Valor de contrib. de bebibas")]
         public decimal ValorContribuicaoBebidas { get; set; }
 
@@ -22,16 +26,6 @@ namespace ChurrasTrinca.Models
         [Display(Name = "Churrasco")]
         public int ChurrascoId { get; set; }
 
-        public decimal ValorContribuicaoTotal => ValorContribuicaoChurras + ValorContribuicaoBebidas;
-
         public Churrasco? Churrasco { get; set; }
-
-        public decimal GetContribuicaoSugerida()
-        {
-            int quantidadeEstimativaPessoas = Churrasco.EstimativaPessoas;
-            int quantidadeParticipantesPagConfirmado = Churrasco.Participantes.Where(p => p.ParticipanteConfirmado).Count();
-            
-            return quantidadeEstimativaPessoas - quantidadeParticipantesPagConfirmado;
-        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace ChurrasTrinca.ViewModels
 {
-    public class Register
+    public class RegisterViewModel
     {
         [Required(ErrorMessage = "O campo E-mail é obrigatório!")]
         [Display(Name = "E-mail")]

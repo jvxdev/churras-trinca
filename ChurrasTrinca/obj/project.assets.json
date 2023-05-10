@@ -11114,11 +11114,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jvxvj\\Desktop\\desafio-tec-churras\\desafio-tec-churras\\ChurrasTrinca\\ChurrasTrinca.csproj",
+      "projectUniqueName": "C:\\Users\\jvxvj\\Desktop\\desafio-tec-churras\\ChurrasTrinca\\ChurrasTrinca.csproj",
       "projectName": "ChurrasTrinca",
-      "projectPath": "C:\\Users\\jvxvj\\Desktop\\desafio-tec-churras\\desafio-tec-churras\\ChurrasTrinca\\ChurrasTrinca.csproj",
+      "projectPath": "C:\\Users\\jvxvj\\Desktop\\desafio-tec-churras\\ChurrasTrinca\\ChurrasTrinca.csproj",
       "packagesPath": "C:\\Users\\jvxvj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jvxvj\\Desktop\\desafio-tec-churras\\desafio-tec-churras\\ChurrasTrinca\\obj\\",
+      "outputPath": "C:\\Users\\jvxvj\\Desktop\\desafio-tec-churras\\ChurrasTrinca\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jvxvj\\AppData\\Roaming\\NuGet\\NuGet.Config",

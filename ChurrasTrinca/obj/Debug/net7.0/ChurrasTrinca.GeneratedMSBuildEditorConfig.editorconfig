@@ -9,77 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ChurrasTrinca
 build_property.RootNamespace = ChurrasTrinca
-build_property.ProjectDir = C:\Users\jvxvj\Desktop\desafio-tec-churras\desafio-tec-churras\ChurrasTrinca\
+build_property.ProjectDir = C:\Users\jvxvj\Desktop\desafio-tec-churras\ChurrasTrinca\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\jvxvj\Desktop\desafio-tec-churras\desafio-tec-churras\ChurrasTrinca
+build_property.MSBuildProjectDirectory = C:\Users\jvxvj\Desktop\desafio-tec-churras\ChurrasTrinca
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Account/Login.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Account/Logout.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Account/Register.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Create.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2h1cnJhc2Nvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Delete.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2h1cnJhc2Nvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Details.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2h1cnJhc2Nvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Edit.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2h1cnJhc2Nvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Index.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Churrascos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2h1cnJhc2Nvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Index.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Participantes/Create.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Participantes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Participantes/Delete.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Participantes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Participantes/Details.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Participantes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Participantes/Edit.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Participantes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/_ViewImports.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/_ViewStart.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jvxvj/Desktop/desafio-tec-churras/desafio-tec-churras/ChurrasTrinca/Pages/Shared/_Layout.cshtml]
+[C:/Users/jvxvj/Desktop/desafio-tec-churras/ChurrasTrinca/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-66zc1iu2d6

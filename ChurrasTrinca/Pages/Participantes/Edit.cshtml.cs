@@ -78,16 +78,31 @@ namespace ChurrasTrinca.Pages.Participantes
                 return Page();
             }
 
+            var participantes = await _context.Participantes.Where(c => c.Id == Participante.Id).Include(x => x.Churrasco).ToListAsync();
+
+            decimal valorChurrasOld = participantes.Select(p => p.ValorContribuicaoChurras).FirstOrDefault();
+
+            decimal valorBebidaOld = participantes.Select(p => p.ValorContribuicaoBebidas).FirstOrDefault();
+
             _context.Attach(Participante).State = EntityState.Modified;
 
             var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == Participante.ChurrascoId);
 
             try
             {
-                //CALCULA O VALOR DE CONTRIB. EM CHURRAS E BEBIDAS
-                var valorTotal = Participante.ValorContribuicaoChurras + Participante.ValorContribuicaoBebidas;
+                decimal valorTotal = 0;
 
-                //ACRESCENTA AO CHURRASCO O VALOR TOTAL DA CONTRIBUIÇÃO DO PARTICIPANTE (CHURRAS + BEBIDAS)
+                if (participantes != null)
+                {
+                    //INCREMENTA O VALOR DE CONTRIB. DE CHURRAS E BEBIDAS DE ACORDO COM A QUANT. DE PARTICIPANTES DO CHURRASCO
+                    foreach (var participante in participantes)
+                        valorTotal = valorTotal += participante.ValorContribuicaoChurras + participante.ValorContribuicaoBebidas;
+                }
+
+                decimal valorTotalOld = valorChurrasOld + valorBebidaOld;
+
+                churrasco.ValorTotalArrecadado -= valorTotalOld;
+
                 if (Participante.ParticipanteConfirmado)
                     churrasco.ValorTotalArrecadado += valorTotal;
                 else

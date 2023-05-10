@@ -36,7 +36,7 @@ namespace ChurrasTrinca.Pages.Churrascos
                 return NotFound();
             }
 
-            var churrasco = await _context.Churrascos.FirstOrDefaultAsync(m => m.Id == id);
+            var churrasco = await _context.Churrascos.Where(c => c.Id == id).Include(x => x.Participantes).FirstOrDefaultAsync();
 
             if (churrasco == null)
             {
@@ -50,7 +50,6 @@ namespace ChurrasTrinca.Pages.Churrascos
             if (churrasco.Participantes != null)
             {
                 foreach (var participante in churrasco.Participantes.Where(p => p.ChurrascoId == id))
-
                     Churrasco.SetContribuicaoTotal(participante);
             }
 

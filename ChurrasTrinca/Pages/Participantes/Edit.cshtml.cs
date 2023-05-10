@@ -102,9 +102,15 @@ namespace ChurrasTrinca.Pages.Participantes
                 }
 
                 if (Participante.ParticipanteConfirmado)
-                    churrasco.ValorTotalArrecadado += valorTotalNew;
-                else
+                {
                     churrasco.ValorTotalArrecadado -= valorTotalOld;
+
+                    churrasco.ValorTotalArrecadado += valorTotalNew;
+                }
+                else
+                {
+                    churrasco.ValorTotalArrecadado -= valorTotalOld;
+                }
 
                 await _context.SaveChangesAsync();
 

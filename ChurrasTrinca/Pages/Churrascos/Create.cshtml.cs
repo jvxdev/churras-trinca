@@ -35,7 +35,10 @@ namespace ChurrasTrinca.Pages.Churrascos
             }
 
             _context.Churrascos.Add(Churrasco);
+
             await _context.SaveChangesAsync();
+
+            TempData["Msg"] = "O churras foi marcado com sucesso!";
 
             return RedirectToPage("./Index");
         }

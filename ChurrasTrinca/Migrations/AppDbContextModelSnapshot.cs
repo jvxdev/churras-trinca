@@ -53,6 +53,9 @@ namespace ChurrasTrinca.Migrations
                     b.Property<decimal>("ValorContribuicaoChurras")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("ValorContribuicaoTotal")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<decimal>("ValorEstimadoBebida")
                         .HasColumnType("decimal(18,2)");
 
@@ -78,7 +81,7 @@ namespace ChurrasTrinca.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ParticipantePagou")
+                    b.Property<bool>("ParticipanteConfirmado")
                         .HasColumnType("bit");
 
                     b.Property<decimal>("ValorContribuicaoBebidas")

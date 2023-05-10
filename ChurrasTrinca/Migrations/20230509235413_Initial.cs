@@ -63,7 +63,8 @@ namespace ChurrasTrinca.Migrations
                     EstimativaPessoas = table.Column<int>(type: "int", nullable: false),
                     Data = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ValorContribuicaoChurras = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ValorContribuicaoBebidas = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    ValorContribuicaoBebidas = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ValorContribuicaoTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -185,7 +186,7 @@ namespace ChurrasTrinca.Migrations
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ValorContribuicaoChurras = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ValorContribuicaoBebidas = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ParticipantePagou = table.Column<bool>(type: "bit", nullable: false),
+                    ParticipanteConfirmado = table.Column<bool>(type: "bit", nullable: false),
                     ChurrascoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

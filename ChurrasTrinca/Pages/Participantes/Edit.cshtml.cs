@@ -47,7 +47,7 @@ namespace ChurrasTrinca.Pages.Participantes
 
             Churrasco = churrasco;
 
-            ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Descricao");
+            ViewData["ChurrascoId"] = new SelectList(_context.Churrascos, "Id", "Nome");
 
             return Page();
         }
@@ -63,8 +63,14 @@ namespace ChurrasTrinca.Pages.Participantes
 
             _context.Attach(Participante).State = EntityState.Modified;
 
+            var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == Participante.ChurrascoId);
+
             try
             {
+                var valorTotal = Participante.ValorContribuicaoChurras + Participante.ValorContribuicaoBebidas;
+
+                churrasco.ValorContribuicaoTotal = valorTotal;
+
                 await _context.SaveChangesAsync();
 
                 TempData["Msg"] = "O participante foi editado com sucesso!";
@@ -80,8 +86,6 @@ namespace ChurrasTrinca.Pages.Participantes
                     throw;
                 }
             }
-
-            var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == Participante.ChurrascoId);
 
             Churrasco = churrasco;
 

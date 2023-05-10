@@ -38,10 +38,12 @@ namespace ChurrasTrinca.Models
         public decimal ValorContribuicaoChurras { get; set; }
 
         public decimal ValorContribuicaoBebidas { get; set; }
+        
+        public decimal ValorContribuicaoTotal { get; set; }
 
-        public decimal ValorContribuicaoTotal => ValorContribuicaoChurras + ValorContribuicaoBebidas;
+        public decimal ValorEstimadoTotal => ValorContribuicaoChurras + ValorContribuicaoBebidas;
 
-        public decimal ValorContribuicaoRestante => ValorEstimadoChurrasco + ValorEstimadoBebida - ValorContribuicaoTotal;
+        public decimal ValorContribuicaoRestante => ValorEstimadoChurrasco + ValorEstimadoBebida - ValorEstimadoTotal;
 
         public ICollection<Participante>? Participantes { get; set; }
 

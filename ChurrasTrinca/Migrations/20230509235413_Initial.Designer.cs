@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChurrasTrinca.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230509161102_Initial")]
+    [Migration("20230509235413_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -56,6 +56,9 @@ namespace ChurrasTrinca.Migrations
                     b.Property<decimal>("ValorContribuicaoChurras")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("ValorContribuicaoTotal")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<decimal>("ValorEstimadoBebida")
                         .HasColumnType("decimal(18,2)");
 
@@ -81,7 +84,7 @@ namespace ChurrasTrinca.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ParticipantePagou")
+                    b.Property<bool>("ParticipanteConfirmado")
                         .HasColumnType("bit");
 
                     b.Property<decimal>("ValorContribuicaoBebidas")

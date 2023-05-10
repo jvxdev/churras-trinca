@@ -60,18 +60,26 @@ namespace ChurrasTrinca.Pages.Participantes
 
             var participante = await _context.Participantes.FindAsync(id);
 
-            var churrasId = await _context.Participantes.Select(p => p.ChurrascoId).FirstOrDefaultAsync();
-
             if (participante != null)
             {
                 Participante = participante;
+
+                var participanteList = await _context.Participantes.Where(c => c.Id == id).ToListAsync();
+
+                decimal valorTotal = participante.ValorContribuicaoChurras + participante.ValorContribuicaoBebidas;
+
+                var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == Participante.ChurrascoId);
+
+                churrasco.ValorContribuicaoTotal = churrasco.ValorContribuicaoTotal - valorTotal;
+
                 _context.Participantes.Remove(Participante);
+
                 await _context.SaveChangesAsync();
             }
 
             TempData["Msg"] = "O participante foi removido com sucesso!";
 
-            return Redirect($"../Churrascos/Edit?id={churrasId}");
+            return Redirect($"../Churrascos/Edit?id={Participante.ChurrascoId}");
         }
     }
 }

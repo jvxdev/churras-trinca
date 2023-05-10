@@ -22,6 +22,8 @@ namespace ChurrasTrinca.Models
         [Display(Name = "Churrasco")]
         public int ChurrascoId { get; set; }
 
+        public decimal ValorContribuicaoTotal => ValorContribuicaoChurras + ValorContribuicaoBebidas;
+
         public Churrasco? Churrasco { get; set; }
 
         public decimal GetContribuicaoSugerida()

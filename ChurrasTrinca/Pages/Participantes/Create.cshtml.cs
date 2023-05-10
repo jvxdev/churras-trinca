@@ -44,11 +44,18 @@ namespace ChurrasTrinca.Pages.Participantes
                 return Page();
 
             _context.Participantes.Add(Participante);
-            await _context.SaveChangesAsync();
+
+            var valorTotal = Participante.ValorContribuicaoChurras + Participante.ValorContribuicaoBebidas;
 
             TempData["Msg"] = "O participante foi convidado com sucesso!";
 
             var churrasId = Participante.ChurrascoId;
+
+            var churrasco = await _context.Churrascos.FirstOrDefaultAsync(c => c.Id == churrasId);
+
+            churrasco.ValorContribuicaoTotal = valorTotal;
+
+            await _context.SaveChangesAsync();
 
             ViewData["ChurrasId"] = churrasId;
 
